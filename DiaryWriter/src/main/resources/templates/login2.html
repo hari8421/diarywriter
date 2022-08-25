@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+	<link href="/css/style.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" />
+
+	<title>Registration</title>
+</head>
+
+<body>
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+					aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" style="margin-left: 510px" href="#" th:href="@{/}">Diary Writer</a>
+
+			</div>
+
+		</div>
+	</nav>
+
+	<br>
+	<br>
+
+	<div class="container" id="login">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<br><br><br><br><br>
+				<div th:if="${param.error}">
+					<div class="alert alert-danger">Invalid username or
+						password.</div>
+				</div>
+				<div th:if="${param.logout}">
+					<div class="alert alert-info">You have been logged out.</div>
+				</div>
+
+				<div class="form-group">
+					<label for="username">Username</label>: <input type="text" id="username" name="username"
+						class="form-control" autofocus="autofocus" placeholder="Username" />
+				</div>
+				<div class="form-group">
+					<label for="password">Password</label>: <input type="password" id="password" name="password"
+						class="form-control" placeholder="Password" />
+				</div>
+				<div class="form-group">
+					<div class="row">
+						<div class="col-sm-6 col-sm-offset-3">
+							<input type="submit" name="login-submit" class="form-control btn btn-primary"
+								onClick='login()' value="Login" />
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<p>
+						<a href="register">Register Account</a>
+					</p>
+				</div>
+
+			</div>
+		</div>
+
+
+	</div>
+	<br>
+	<div id="kafkalogin" class="col-md-36 col-md-offset-36" style="display: none">
+		<div class="header">
+			<div class="header-left">
+				<p class="navbar-brand" id="welcome" style="display: none;margin-right: -150px;color:green">Welcome </p>
+
+			</div>
+			<div class="header-right">
+				<button class="button5" onclick="logout()">Logout</button>
+			</div>
+		</div>
+		<div id="Home" class="tabcontent">
+
+			<div style="width:100%" id="cDiary">
+
+				<div style="width:100%;float:left;" class="rcorners2">
+
+
+
+					<b>Write Diary</b>
+					<br><br>
+					<table style="width:100%;">
+						<tr>
+							<td><td><input class="form-control" type="text" style="width:95%;" id="dHead"
+									placeholder="Diary Heading"></td></td>
+							<td><button class="button6"   onclick="saveDiary()">Save</button>
+							</td>
+							
+						</tr>
+					</table>
+
+					<hr style="margin-top: 0px;">
+					Please enter the diary content here.
+					<textarea id="w3review" class="textarea" name="w3review" rows="15" cols="90"></textarea>
+					<table style="width:100%;">
+					<tr>
+					<td><button class="button6"   onclick="viewDiaries()">View Diaries</button>
+							</td>
+					</tr>
+					</table>
+					<p id="published"></p>
+				</div>
+			</div>
+			
+			<div style="width:100%;display: none" id="vDiary">
+
+				<div style="width:100%;float:left;" class="rcorners2">
+
+					<br><br>
+					<div id="diaryList"></div>
+
+					<table style="width:100%;">
+					<tr>
+					<td><button class="button6"   onclick="backToSave()">Back</button>
+							</td>
+					</tr>
+					</table>
+				</div>
+			</div>
+			
+				<div style="width:100%;display: none" id="vDiaryById">
+
+				<div style="width:100%;float:left;" class="rcorners2">
+					<br><br>
+					<table style="width:100%;">
+						<tr>
+							<td><td><input class="form-control" type="text" style="width:95%;" id="dHeadv"
+									placeholder="Diary Heading"></td></td>
+							</td>
+							
+						</tr>
+					</table>
+
+					<hr style="margin-top: 0px;">
+					<textarea id="w3reviewV" class="textarea" rows="15" cols="90"></textarea>
+					<table style="width:100%;">
+					<tr>
+					<td><button class="button6"   onclick="back()">View Diaries</button>
+							</td>
+					</tr>
+					</table>
+				</div>
+			</div>
+
+
+		</div>
+
+	</div>
+
+	<script type="text/javascript" th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
+	<script type="text/javascript" th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+	<script src="/js/design.js"></script>
+
+</body>
+
+</html>

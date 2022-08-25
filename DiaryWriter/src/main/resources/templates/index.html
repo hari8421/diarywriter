@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <link href="/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+<div class="header">
+    <a href="#default" class="logo">KafkaToolKit</a>
+    <div class="header-right">
+        <a href="#">
+            <form method="post" action="kafkaLogin" id="kafkaLogin">
+                <select name="kafkaId" onchange="kafkaLogin()">
+                    <option>Choose Cluster</option>
+                    <th:block th:each="kafka : ${kafka}">
+                        <option th:value="${kafka.kafkaId}" th:text="${kafka.cluster}"
+                        >
+                        </option>
+                    </th:block>
+                </select>
+            </form>
+
+        </a>
+              <a href="logout">Logout</a>
+
+    </div>
+</div>
+
+
+<button class="tablink" onclick="openPage('Home', this, 'seagreen')" id="defaultOpen">Home</button>
+<button class="tablink" onclick="openPage('LoadTest', this, 'seagreen')">Load Test</button>
+<button class="tablink" onclick="openPage('live', this, 'seagreen')">Live</button>
+<button class="tablink" onclick="openPage('Setting', this, 'seagreen')">Setting</button>
+
+
+<div id="Home" class="tabcontent">
+
+    <div style="width:100%">
+        <div style="width:48%;float:right;" class="rcorners2">
+            Publisher
+            <hr style="margin-top: 0px;">
+            adasdasd
+            asfasfaf
+            dsfsdfsdfsdf
+            sdfsdfds
+            <p>sdfsdfdsfdsfsdfsdf</p>
+        </div>
+        <div style="width:48%;float:left;" class="rcorners2">
+            Subscriber
+            <hr style="margin-top: 0px;">
+            adasdasd
+            asfasfaf
+            dsfsdfsdfsdf
+            sdfsdfds
+            <p>sdfsdfdsfdsfsdfsdf</p>
+        </div>
+    </div>
+
+
+</div>
+<div id="LoadTest" class="tabcontent">
+
+
+    <div style="width:100%">
+        <div style="width:48%;float:right;" class="rcorners2">
+            By Message
+            <hr style="margin-top: 0px;">
+            adasdasd
+            asfasfaf
+            dsfsdfsdfsdf
+            sdfsdfds
+            <p>sdfsdfdsfdsfsdfsdf</p>
+        </div>
+        <div style="width:48%;float:left;" class="rcorners2">
+            By File
+            <hr style="margin-top: 0px;">
+            adasdasd
+            asfasfaf
+            dsfsdfsdfsdf
+            sdfsdfds
+            <p>sdfsdfdsfdsfsdfsdf</p>
+        </div>
+    </div>
+
+
+</div>
+<div id="live" class="tabcontent">
+
+    <div style="width:100%">
+        <div style="width:48%;float:right;" class="rcorners2">
+            Publisher
+            <hr style="margin-top: 0px;">
+            adasdasd
+            asfasfaf
+            dsfsdfsdfsdf
+            sdfsdfds
+            <p>sdfsdfdsfdsfsdfsdf</p>
+        </div>
+        <div style="width:48%;float:left;" class="rcorners2">
+            Subscriber
+            <hr style="margin-top: 0px;">
+            adasdasd
+            asfasfaf
+            dsfsdfsdfsdf
+            sdfsdfds
+            <p>sdfsdfdsfdsfsdfsdf</p>
+        </div>
+    </div>
+</div>
+
+<div id="Setting" class="tabcontent">
+
+
+    <div style="width:100%">
+
+        <div style="width:48%;float:left;" class="rcorners2">
+            <form id="regForm" action="addKafka" method="post">
+
+                <!-- One "tab" for each step in the form: -->
+                <div class="tab">Kafka Account Registration
+                    <p><input placeholder="Cluster Name..." oninput="this.className = ''" name="cluster"></p>
+                </div>
+                <div class="tab">Kafka
+                    <p><input placeholder="Broker..." oninput="this.className = ''" name="broker"></p>
+                </div>
+                <div class="tab">Additional Properties
+
+                    <table id="properties">
+                        <tr>
+                            <td>
+                                <p>
+                                    <input placeholder="Broker..."  name="prop"
+                                           style="    width: 40%;">
+                                    <input placeholder="Broker..."  name="propValue"
+                                           style="    width: 40%;">
+                                </p>
+                            </td>
+                            <td><label onclick="addTableRow()">Add</label></td>
+                            <td><label onclick="addTableRow()">Delete</label></td>
+                        </tr>
+                    </table>
+
+
+                </div>
+                <div style="overflow:auto;">
+                    <div style="float:right;">
+                        <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                        <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                    </div>
+                </div>
+                <!-- Circles which indicates the steps of the form: -->
+                <div style="text-align:center;margin-top:40px;">
+                    <span class="step"></span>
+                    <span class="step"></span>
+                    <span class="step"></span>
+
+                </div>
+            </form>
+        </div>
+        <div style="width:48%;float:right;" class="rcorners2">
+            Topics
+            <hr style="margin-top: 0px;">
+            adasdasd
+            asfasfaf
+            dsfsdfsdfsdf
+            sdfsdfds
+            <p>sdfsdfdsfdsfsdfsdf</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

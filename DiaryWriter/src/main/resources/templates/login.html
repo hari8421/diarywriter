@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <link href="/css/style.css" rel="stylesheet">
+
+</head>
+<body>
+<div class="header">
+    <a href="#default" class="logo">KafkaToolKit</a>
+
+</div>
+
+
+
+
+
+
+
+
+<!-- Register Popup-->
+<div class="w3-container">
+    <div id="id01" class="w3-modal">
+        <div class="w3-modal-content">
+            <div class="w3-container">
+                <form action="login" method="POST">
+                    <h2>Login to the Account</h2>
+                    <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+                    <p><input type="text" name="account" id="account"></p>
+                    <p><input type="submit" name="submit" value="Login"></p>
+                    <p><a href="register">Register Account</a> </p>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/design.js"></script>
+</body>
+</html>
