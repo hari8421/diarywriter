@@ -28,5 +28,10 @@ public class AppController {
 	public String home(@CookieValue(name = "systemId", required = false) String accountId, ModelMap modelMap) {
 		return "login2";
 	}
+	
+	@GetMapping("/register")
+	public String register() {
+		return "register";
+	}
 
 }

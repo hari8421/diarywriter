@@ -39,6 +39,7 @@ public class UserController {
 	public ResponseEntity<?> insertUser(@Valid @RequestBody UserEntity userRequest) {
 		log.info("inserting user:{}", userRequest.getEmailId());
 		UserEntity userResponse = userService.insertUserInfo(userRequest);
+		userResponse.setPassWord(null);
 		return new ResponseEntity<UserEntity>(userResponse, HttpStatus.CREATED);
 	}
 

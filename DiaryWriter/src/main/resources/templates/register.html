@@ -1,40 +1,79 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-    <link href="/css/style.css" rel="stylesheet">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
+	<link href="/css/style.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" />
+
+	<title>Registration</title>
 </head>
+
 <body>
-<div class="header">
-    <a href="#default" class="logo">KafkaToolKit</a>
 
-</div>
-<!-- Register Popup-->
-<div class="w3-container">
-    <div id="id01" class="w3-modal">
-        <div class="w3-modal-content">
-            <div class="w3-container">
-                <form action="addAccount" method="POST">
-                    <h2>Register an Account</h2>
-                    <span onclick="document.getElementById('id01').style.display='none'"
-                          class="w3-button w3-display-topright">&times;</span>
-                    <p><input type="text" name="accountName" id="accountName"></p>
-                    <p><input type="submit" name="submit" value="Register"></p>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+					aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" style="margin-left: 510px" href="#" th:href="@{/}">Diary Writer</a>
 
-                </form>
+			</div>
 
-            </div>
-        </div>
-    </div>
-    <script>
-        document.getElementById('id01').style.display='block'
+		</div>
+	</nav>
 
-    </script>
-</div>
+	<br>
+	<br>
 
-<script src="/js/design.js"></script>
+	<div class="container" id="register">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<br><br><br><br><br>
+				<div class="form-group">
+					<label for="Firstname">First Name</label>: <input type="text" id="firstName"
+						class="form-control" autofocus="autofocus" placeholder="First name" />
+				</div>
+				<div class="form-group">
+					<label for="Lastname">Last Name</label>: <input type="text" id="lastName"
+						class="form-control" autofocus="autofocus" placeholder="Last name" />
+				</div>
+				<div class="form-group">
+					<label for="username">Username</label>: <input type="text" id="username" name="username"
+						class="form-control" autofocus="autofocus" placeholder="Username" />
+				</div>
+				<div class="form-group">
+					<label for="password">Password</label>: <input type="password" id="password" name="password"
+						class="form-control" placeholder="Password" />
+				</div>
+				<div class="form-group">
+					<div class="row">
+						<div class="col-sm-6 col-sm-offset-3">
+							<input type="submit" name="login-submit" class="form-control btn btn-primary"
+								onClick='register()' value="Register" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+	<br>
+
+	<script type="text/javascript" th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
+	<script type="text/javascript" th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+	<script src="/js/design.js"></script>
+
 </body>
+
 </html>
